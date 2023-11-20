@@ -1,0 +1,29 @@
+<% if flash[:notice]%>
+    <h5 class='text-color flash-msg' style='color: white'><%= flash[:notice]%></h5>
+<% end %>
+
+
+</div>
+<div class='albums'>
+    <% if current_author.albums %>
+        
+        <% current_author.albums.each_with_index do |e,i|%>
+        <div class='album'>
+            <h2><%= e.title%></h2>
+            <p>
+                Author
+                <%= e.author.username%>
+            </p>
+            <p>Release Year: <%= e.year%></p>
+            <p>Songs <%= e.song_count%></p>
+            <%= link_to 'Remove Album', album_path(e),data:{turbo_method: :delete} %>
+        </div> 
+        <% end %>
+
+    <% end %>
+
+</div>
+
+<% if !current_author.albums.any? %>
+        <h1 class='text-center mt-5 text-white'>You have no albums</h1>
+    <% end %>

@@ -1,0 +1,56 @@
+<div class='navigation'>
+    <ul class='nav-inner'>
+        <li class='nav-element'>
+            <a href='/'>Home</a>
+        </li>
+        <li class='nav-element'>
+            <a href='/events'>Events</a>
+        </li>
+        <% if logged_in?%>
+            <li class='nav-element'>
+                <a href='/albums/new'>Create Albums</a>
+            </li>
+             <li class='nav-element'>
+                <a href='/events/new'>Create Events</a>
+            </li>
+        <% end %>
+    </ul>
+    <ul class='nav-inner no2'>
+       
+        <% if logged_in? %>
+            <div class='user-icon'>
+                <%= button_to 'Log out', logout_path, method: :delete %>
+                <div class='your'>
+                    <a href='/authors/<%= current_author.id %>'>
+                        Your Albums
+                    </a>
+                </div>
+                <div class='your'>
+                    <a href='/authors/events/<%=current_author.id%>'>
+                        Your events
+                    </a>
+                </div>
+                 <div class='your'>
+                    <a href='/tickets'>
+                        Booked Tickets
+                    </a>
+                </div>
+                <div class='circle'></div>
+            </div>
+        <% end %>
+
+        <% if !logged_in? %>
+        <button class='btn1'>
+            <a href='/authors/new'>
+                Sign Up
+            </a>
+            </button>
+        <button class='btn2'
+        >
+        <a href='/login'>
+            Log in
+        </a>
+        </button>
+        <% end %>
+    </ul>
+</div>

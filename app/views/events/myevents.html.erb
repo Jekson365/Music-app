@@ -1,0 +1,21 @@
+<% if flash[:notice]%>
+    <div class='flash-msg'><%= flash[:notice]%></div>
+<% end %>
+<div class='event-container'>
+
+    <% @events.each do |e|%>
+        <div class='event'>
+            <h3><%= e.title%> - By <%= e.author.title%></h3>
+            <p><strong>location:</strong> <%= e.location%></p>
+            <p><strong>date:</strong> <%= e.date ? e.date.day : "" %></p>
+            <p><strong>price: </strong><%= e.ticket_price%>$</p>
+            <%# <button class='delete-event'>cancle event</button> %>
+            <%= link_to 'cancle event',event_path(e),data: {turbo_method: :delete},class: 'delete-event' %>
+        </div>
+    <% end %>
+
+    <% if !@events.any?%>
+        <h1 class='text-white'>You have no Events</h1>
+    <% end %>
+
+</div>

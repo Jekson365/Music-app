@@ -1,0 +1,25 @@
+<% if flash[:notice]%>
+    <div class='flash-msg'>
+        <%= flash[:notice]%>
+    </div>
+<% end %>
+
+
+<div class='event-container'>
+    <% if @events.any? %>
+        <% @events.each do |e|%>
+            <div class='event'>
+                <h3><%= e.title%> - By <%= e.author.title%></h3>
+                <p><strong>location:</strong> <%= e.location%></p>
+                <p><strong>date:</strong> <%= e.date%></p>
+                <p><strong>price: </strong><%= e.ticket_price%>$</p>
+                <% if check_admin? %>
+                    <%= button_to "book event", hello_path(event: e),class: "btn btn-success" %>
+                <% end %>
+            </div>
+        <% end %>
+    <% else %>
+        <h1 class='text-white'>There are no Events</h1>
+    <% end %>
+
+</div>

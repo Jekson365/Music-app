@@ -1,0 +1,11 @@
+<div class='ticket-container'>
+
+<% @bookedTickets.each do |e|%>
+    <div class='booked-ticket'>
+        <h5><%= e.event.title%></h5>
+        <p><%= e.event.date%></p>
+        <%= link_to "remove ticket",ticket_path(e.id),class: "btn btn-danger",data: {turbo_method: :delete}
+        %>
+    </div>
+<% end %>
+</div>

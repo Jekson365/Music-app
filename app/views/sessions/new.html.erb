@@ -1,0 +1,26 @@
+<% if flash[:notice]%>
+    <h5 class='text-color flash-msg' style='color: white'><%= flash[:notice]%></h5>
+<% end %>
+
+
+<div class='sign-form'>
+    <%= form_with model: @author,scope: :session do |form| %>
+    <h1>Login, Beatch!</h1>
+
+  <div class="form-group">
+    <%= form.label :email %>
+    <%= form.email_field :email, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :password %>
+    <%= form.password_field :password, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.submit 'Submit', class: 'btn btn-primary' %>
+  </div>
+<% end %>
+
+
+</div>

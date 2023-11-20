@@ -1,0 +1,41 @@
+<div class='sign-form'>
+    <%= form_with model: @author do |form| %>
+    <h1>Sign up, Beatch!</h1>
+  <div class="form-group">
+    <%= form.label :title %>
+    <%= form.text_field :title, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :description %>
+    <%= form.text_field :description, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :start_date %>
+    <%= form.number_field :start_date, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :username %>
+    <%= form.text_field :username, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :password %>
+    <%= form.password_field :password, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :email %>
+    <%= form.email_field :email, class: 'form-control' %>
+  </div>
+
+
+  <div class="form-group">
+    <%= form.submit 'Submit', class: 'btn btn-primary' %>
+  </div>
+<% end %>
+
+
+</div>
